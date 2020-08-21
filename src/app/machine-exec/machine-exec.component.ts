@@ -31,8 +31,8 @@ export class MachineExecComponent implements OnInit {
   result: string; // cadena resultado.
 
   lon_tape: number = 30;
-  tape: any[] = new Array( this.lon_tape );
-  state_pos: any[] = new Array( this.lon_tape );
+  tape: any[] = new Array( this.lon_tape ); // cinta
+  state_pos: any[] = new Array( this.lon_tape ); // indice de posiciones de la cinta.
   
   valueTape: string =""; // Entrada para la cinta.
   positionTape: number; // posicion de inicio de lectura de la cinta.
@@ -123,7 +123,7 @@ export class MachineExecComponent implements OnInit {
     let previuskey=-1;
     let previusHead=-1;
     if (!this.actualState) { // Si no esta definido el estado actual carga el estado de inicio.
-      this.actualState = this.estados.find( e => e.type == settings.TYPE_STATE_INIT ); 
+      this.actualState = this.estados.find( e => e.type == settings.TYPE_STATE_INIT );      
       this.head = (this.positionTape) ?Number(this.positionTape): this.in_ini;
     }
     else { // Si hay un estado actual ejecuta la transicion y la operacion sobre la cinta.
