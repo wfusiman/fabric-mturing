@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <img width="70" src="../../assets/images/iconmt.png">
+        <span class="tb-spacer"></span>
+        <a [routerLink]="['/']" (click)="onList()">
+            <h1 class="md-display-3">Fabrica Maquinas de Turing</h1>
+        </a>    
+        <span class="tb-spacer"></span>
+        <button mat-raised-button [matMenuTriggerFor]="menu" class="tb-button" [disabled]="[disabledNew]">
+            Nueva maquina
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item [routerLink]="['/machineEdit/simple/0']" (click)="onNew()">simple</button>
+            <button mat-menu-item  [routerLink]="['/machineEdit/compuesta/0']" (click)="onNew()">compuesta</button>
+        </mat-menu>
+
+    </mat-toolbar-row>
+</mat-toolbar>

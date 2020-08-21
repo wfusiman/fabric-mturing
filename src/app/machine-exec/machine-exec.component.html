@@ -1,0 +1,64 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Ejecucion Maquina {{machine.id}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p mat-line>Maquina: {{machine.name}},  {{machine.description}}</p>
+        <p mat-line>{{(machine.type=='simple') ? 'Estados:':'Maquinas:'}}  {{states}}</p>
+        <p mat-line>Alfabeto: {{machine.alphabet}}</p>
+        <mat-divider></mat-divider>
+        <mat-form-field class="valueTape-width">
+            <mat-label>Ingrese entrada de la cinta:</mat-label>
+            <input matInput placeholder="entrada de la cinta"  [(ngModel)]="valueTape" 
+                    [disabled]="statusMachine==runMode.RUNNING || statusMachine==runMode.STEP || statusMachine==runMode.COMPLETE" 
+                    maxlength="30">
+        </mat-form-field>
+        <mat-form-field class="positionTape-width">
+            <mat-label>Posicion inicial:</mat-label>
+            <input matInput placeholder="inicio lectura"  [(ngModel)]="positionTape" pattern="^[0-9]{1}$|^[1-2]{1}[0-9]{1}$"
+                    [disabled]="statusMachine==runMode.RUNNING || statusMachine==runMode.STEP || statusMachine==runMode.COMPLETE" 
+                    maxlength="2">
+        </mat-form-field>
+        
+        <button mat-icon-button (click)="cargarCinta()" matTooltip= "Cargar cinta" 
+                [disabled]="statusMachine==runMode.RUNNING || statusMachine==runMode.STEP || statusMachine==runMode.COMPLETE">
+            <mat-icon>vertical_align_bottom</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip= "Ejecucion completa" (click)="ejecutarTodo()" 
+                [disabled]="statusMachine==runMode.RUNNING || statusMachine==runMode.STEP || statusMachine==runMode.TAPE_EMPTY || statusMachine==runMode.COMPLETE">
+            <mat-icon>play_arrow</mat-icon>
+        </button>
+        <button mat-icon-button [matTooltip]="(statusMachine==runMode.STEP ? 'Siguiente paso':'Ejecutar paso a paso')" (click)="ejecutarPaso()" 
+                [disabled]="statusMachine==runMode.RUNNING || statusMachine==runMode.TAPE_EMPTY || statusMachine==runMode.COMPLETE">
+            <mat-icon>skip_next</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip= "Detener" (click)="detener()" 
+                [disabled]="statusMachine!=runMode.RUNNING && statusMachine!=runMode.STEP && statusMachine!=runMode.COMPLETE">
+            <mat-icon>stop</mat-icon>
+        </button>
+        
+        <mat-grid-list [cols]="lon_tape" rowHeight="50px">
+            <mat-grid-tile
+                *ngFor="let item of tape"
+                [colspan]="1"
+                [rowspan]="1"
+                [style.backgroundColor]="item.color">
+              <p class="text-tape">{{item.simbolo}}</p>
+            </mat-grid-tile>
+        </mat-grid-list>     
+        
+        <mat-grid-list [cols]="lon_tape" rowHeight="50px">
+            <mat-grid-tile
+                *ngFor="let item of state_pos"
+                [colspan]="1"
+                [rowspan]="1"
+                [style.backgroundColor]="item.color">
+                <p class="text-tape">{{item.estado}}</p>
+            </mat-grid-tile>
+        </mat-grid-list>    
+        
+        <div mat-line id="diagram" style="width:100%; height:450px; background-color: #DAE4E4;">
+        </div>
+    </mat-card-content>
+</mat-card>
+

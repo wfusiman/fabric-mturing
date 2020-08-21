@@ -1,0 +1,192 @@
+<mat-card>
+
+    <mat-card-header>
+        <mat-card-title>{{(mode=='edit')?'Edicion ':'Nueva '}} Maquina de Turing {{esCompuesta ? 'Compuesta': ''}} {{machineEdit ? machineEdit.id: ''}}</mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+        
+        <mat-form-field class="full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput [formControl]="nameInputControl" maxlength="10" placeholder="maquina X">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Descripcion</mat-label>
+            <input matInput placeholder="realiza... " [(ngModel)]="machineDesc">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Alfabeto</mat-label>
+            <input matInput placeholder="Alfabeto de la lista" [(ngModel)]="machineAlphabet" [readonly]="true">
+        </mat-form-field>
+
+        <mat-accordion multi="true">    
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>{{esCompuesta ? 'Maquinas':'Estados'}}</mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <button *ngIf="!esCompuesta" mat-stroked-button (click)="addStateNode()" style="margin-right: 10px; margin-bottom: 10px;">
+                    agregar
+                </button>
+                <button *ngIf="esCompuesta" mat-stroked-button (click)="addMachineNode()" style="margin-right: 10px; margin-bottom: 10px;">
+                    agregar
+                </button>
+                <button *ngIf="!esCompuesta" mat-stroked-button (click)="delStateNode()" style="margin-right: 10px; margin-bottom: 10px;"
+                        [disabled]="!selectionState.hasValue()">
+                    quitar
+                </button>
+                <button *ngIf="esCompuesta" mat-stroked-button (click)="delMachineNode()" style="margin-right: 10px; margin-bottom: 10px;"
+                        [disabled]="!selectionState.hasValue()">
+                    quitar
+                </button>
+
+                <table mat-table #tabla1 class="mat-elevation-z8" [dataSource]="estados">
+
+                    <ng-container matColumnDef="select">
+                        <th mat-header-cell *matHeaderCellDef width ="10%">
+                          <mat-checkbox (change)="$event ? selectionState.clear() : null"
+                                        [checked]="selectionState.hasValue()">
+                          </mat-checkbox>
+                        </th>
+                        <td mat-cell *matCellDef="let row">
+                          <mat-checkbox (click)="$event.stopPropagation()"
+                                        (change)="$event ? selectionState.toggle(row) : null"
+                                        [checked]="selectionState.isSelected(row)"
+                                        [disabled]="row.type == state_init || row.type == state_halt">
+                          </mat-checkbox>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="key">
+                        <th mat-header-cell *matHeaderCellDef width ="10%">num</th>
+                        <td mat-cell *matCellDef="let element"> {{element.key}} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef width ="50%">nombre</th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="type">
+                        <th mat-header-cell *matHeaderCellDef width ="40%">tipo</th>
+                        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsState"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsState;"
+                        >
+                    </tr>
+                </table>
+
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>Transiciones</mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <button mat-stroked-button (click)="newTransition()" style="margin-right: 10px; margin-bottom: 10px;">
+                    agregar
+                </button>
+                <button mat-stroked-button (click)="delTransition()" style="margin-right: 10px; margin-bottom: 10px;"
+                        [disabled]="!selectionTransition.hasValue()">
+                    quitar
+                </button>
+                <button mat-stroked-button (click)="editTransition()" style="margin-right: 10px; margin-bottom: 10px;"
+                        [disabled]="!selectionTransition.hasValue()">
+                    editar
+                </button>
+
+                <table mat-table class="mat-elevation-z8" [dataSource]="transiciones">
+
+                    <ng-container matColumnDef="select">
+                        <th mat-header-cell *matHeaderCellDef width ="5%">
+                          <mat-checkbox (change)="$event ? selectionTransition.clear() : null"
+                                        [checked]="selectionTransition.hasValue()">
+                          </mat-checkbox>
+                        </th>
+                        <td mat-cell *matCellDef="let row">
+                          <mat-checkbox (click)="$event.stopPropagation()"
+                                        (change)="$event ? selectionTransition.toggle(row) : null"
+                                        [checked]="selectionTransition.isSelected(row)">
+                          </mat-checkbox>
+                        </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="numero">
+                        <th mat-header-cell *matHeaderCellDef width ="10%"> No. </th>
+                        <td mat-cell *matCellDef="let element"> {{element.num}} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="origen" width ="30%">
+                        <th mat-header-cell *matHeaderCellDef>Origen</th>
+                        <td mat-cell *matCellDef="let element"> {{element.stateFrom}} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="simbolo_leido" width ="10%">
+                        <th mat-header-cell *matHeaderCellDef>Simbolo leido</th>
+                        <td mat-cell *matCellDef="let element"> {{element.symbolRead}} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="accion" width ="20%">
+                        <th mat-header-cell *matHeaderCellDef>Accion</th>
+                        <td mat-cell *matCellDef="let element"> {{element.action}}: {{element.action_value}} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="destino" width ="30%">
+                        <th mat-header-cell *matHeaderCellDef>Destino</th>
+                        <td mat-cell *matCellDef="let element"> {{element.stateTo}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsTransition"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsTransition;">
+                        (click)="selectionTransition.toggle(row)">
+                    </tr>
+
+                </table>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel id="panelmachines">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Diagrama maquinas
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div id="diagrammachines" style="width:100%; height:400px; background-color: #DAE4E4;"></div>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel id="panelstates">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Diagrama de estados
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div id="diagramstates" style="width:100%; height:400px; background-color: #DAE4E4;"></div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    
+    </mat-card-content>
+
+    <div style="display: inline-block;padding-left: 20px;">
+        <button mat-fab *ngIf="esValida" color="primary" style="margin-right: 20px; margin-bottom: 20px;">
+            <mat-icon *ngIf="esValida">done_outline</mat-icon>
+        </button>
+        <button mat-fab (click)="validarMaquina()" *ngIf="!esValida" color="warn" style="margin-right: 20px; margin-bottom: 20px;">
+            validar
+        </button>
+
+        <button mat-stroked-button *ngIf="mode!='edit'"
+                [disabled]="nameInputControl.hasError('required') || !esValida" 
+                (click)="guardarMaquina()" 
+                style="margin-right: 20px; margin-bottom: 20px;">
+            Guardar Maquina
+        </button>
+        <button mat-stroked-button *ngIf="mode=='edit'"
+                [disabled]="nameInputControl.hasError('required') || !esValida" 
+                (click)="actualizarMaquina()" 
+                style="margin-right: 20px; margin-bottom: 20px;">
+            Actualizar Maquina
+        </button>
+    </div>
+    
+</mat-card>

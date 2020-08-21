@@ -1,0 +1,15 @@
+.tb-button {
+    padding: 0 14px;
+  }
+
+.tb-spacer {
+    flex: 1 1 auto;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+a:visited {
+    color:white;
+}

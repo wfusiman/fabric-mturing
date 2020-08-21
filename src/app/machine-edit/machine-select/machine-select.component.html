@@ -1,0 +1,49 @@
+<h1 mat-dialog-title>Seleccion maquina</h1>
+<div mat-dialog-content>
+
+    <table mat-table #tabla1 [dataSource]="machines">
+
+        <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef width ="10%">
+              <mat-checkbox (change)="$event ? selectionMachine.clear() : null"
+                            [checked]="selectionMachine.hasValue()">
+              </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="$event ? selectionMachine.toggle(row) : null"
+                            [checked]="selectionMachine.isSelected(row)">
+              </mat-checkbox>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef width ="20%">Id</th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef width ="30%">Nombre</th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef width ="30%">Descripcion</th>
+            <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+            (click)="selectionMachine.toggle(row)">
+        </tr>
+    </table>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-stroked-button (click)="onCancelClick()">Cancelar</button>
+    <button mat-stroked-button (click)="onAceptarClick()" [mat-dialog-close]="data"
+            [disabled]="!selectionMachine.hasValue()">
+        Aceptar
+    </button>
+  </div>

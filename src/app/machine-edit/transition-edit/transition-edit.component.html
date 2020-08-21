@@ -1,0 +1,85 @@
+<h1 mat-dialog-title>Transicion</h1>
+<div mat-dialog-content>
+
+  <mat-form-field>
+    <mat-label>Origen</mat-label>
+        <mat-select [formControl]="origenSelectControl" required>
+            <mat-option *ngFor="let origen of data.states_origin" [value]="origen">
+              {{origen}}
+            </mat-option>
+        </mat-select>
+    <mat-error *ngIf="origenSelectControl.hasError('required')">Seleccione origen de transicion</mat-error>
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-label>Simbolo leido</mat-label>
+      <input type="text"
+           placeholder="({{symbol_empty}} = vacio, {{symbol_not}} = negar)"
+           aria-label="Number"
+           matInput
+           [formControl]="readInputControl"
+           [matAutocomplete]="auto" 
+           autoActiveFistOption="true"
+           required>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of data.alphabets" [value]="option">
+         {{option}}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error *ngIf="readInputControl.hasError('pattern')">entrada invalida</mat-error>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="!compuesta">
+    <mat-label>Accion</mat-label>
+    <mat-select [formControl]="actionInputControl" required (selectionChange)="changeAction()">
+      <mat-option *ngFor="let action of actionOptions" [value]="action">
+        {{action}}
+      </mat-option>
+  </mat-select>
+  <mat-error *ngIf="actionInputControl.hasError('required')">Seleccione accion a realizar</mat-error>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="writeSelect">
+    <mat-label>Simbolo a escribir</mat-label>
+    <input type="text"
+           placeholder="({{symbol_empty}} = vacio)"
+           aria-label="Number"
+           matInput
+           [formControl]="writeInputControl"
+           [matAutocomplete]="auto" 
+           maxlength="1" required>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let optionw of data.alphabets" [value]="optionw">
+        {{optionw}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="moveSelect">
+    <mat-label>Movimiento</mat-label>
+    <mat-select [(value)]="move" required>
+        <mat-option value="R">DERECHA (R)</mat-option>
+        <mat-option value="L">IZQUIERDA (L)</mat-option>
+      </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Destino</mat-label>
+        <mat-select [formControl]="destinoSelectControl" required>
+            <mat-option *ngFor="let destino of data.states_destiny" [value]="destino">
+              {{destino}}
+            </mat-option>
+        </mat-select>
+    <mat-error *ngIf="destinoSelectControl.hasError('required')">Seleccione destino de transicion</mat-error>
+  </mat-form-field>
+  
+</div>
+
+<div mat-dialog-actions>
+  <button mat-stroked-button (click)="onCancelClick()">Cancelar</button>
+  <button mat-stroked-button (click)="onAceptarClick()" [mat-dialog-close]="data" 
+        [disabled]="origenSelectControl.hasError('required') || destinoSelectControl.hasError('required') || readInputControl.hasError('required')
+                    || readInputControl.hasError('pattern') || (actionInputControl.value=='escribir' && writeInputControl.hasError('required') )">
+      Aceptar
+  </button>
+</div>

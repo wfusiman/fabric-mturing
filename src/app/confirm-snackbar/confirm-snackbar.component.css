@@ -1,0 +1,19 @@
+
+.snack-confirm { 
+    color: #f7f0cf;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.text {
+    flex: 1;
+    color: white;
+    font-size:medium ;
+}
+
+button.change {
+    background-color: white;
+    color: black !important;
+    margin-left: 10px;
+}

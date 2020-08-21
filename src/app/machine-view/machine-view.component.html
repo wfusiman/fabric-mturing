@@ -1,0 +1,29 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <p>Maquina de Turing {{machine.id}}</p>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-slide-toggle class="align-right" color="primary" [checked]="[machine.active]" (change)="changeStatus($event)">{{status}}</mat-slide-toggle>
+        <p mat-line>Nombre: {{machine.name}}</p>
+        <mat-divider [inset]="true"></mat-divider>
+        <p mat-line>Descripcion: {{machine.description}}</p>
+        <mat-divider [inset]="true"></mat-divider>
+        <p mat-line>Estados: {{statesNames}}</p>
+        <mat-divider [inset]="true"></mat-divider>
+        <p mat-line>Alfabeto: {{machine.alphabet}}</p>
+        <mat-divider [inset]="true"></mat-divider>
+        <mat-card id="panel_diagramMachines">
+            <p>Diagram de Maquinas</p>
+            <div mat-line id="diagramMachines" style="width:100%; height:300px; background-color: #DAE4E4;">
+            </div>
+        </mat-card>
+        <mat-divider [inset]="true"></mat-divider>
+        <mat-card id="panel_diagramStates">
+            <p>Diagrama de estados</p>
+            <div mat-line id="diagramStates" style="width:100%; height:500px; background-color: #DAE4E4;">
+            </div>
+        </mat-card>
+    </mat-card-content>
+</mat-card>

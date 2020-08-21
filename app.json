@@ -1,0 +1,20 @@
+{
+  "name": "Fabric Machine Turing",
+  "description": "Fabrica de maquinas de turing simples y compuestas",
+  "keywords": [
+    "MEAN",
+    "Angular",
+    "Node"
+  ],
+  "repository": "https://git.heroku.com/fabric-mturing.git",
+  "success_url": "/",
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "addons": [
+   
+  ]
+}

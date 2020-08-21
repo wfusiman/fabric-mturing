@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "R01",
+    "description": "Mueve una posicion a la derecha",
+    "active": true,
+    "alphabet": [
+      "0",
+      "1"
+    ],
+    "states": [
+      {
+        "key": 1,
+        "name": "Qf",
+        "type": "parada",
+        "loc_x": "392",
+        "loc_y": "6"
+      },
+      {
+        "key": 2,
+        "name": "Q0",
+        "type": "inicio",
+        "loc_x": "10",
+        "loc_y": "10"
+      }
+    ],
+    "transitions": [
+      {
+        "num": 1,
+        "symbolRead": "0",
+        "action": "mover",
+        "action_value": "R",
+        "stateFrom": 2,
+        "stateTo": 1
+      },
+      {
+        "num": 2,
+        "symbolRead": "1",
+        "action": "mover",
+        "action_value": "R",
+        "stateFrom": 2,
+        "stateTo": 1
+      },
+      {
+        "num": 3,
+        "symbolRead": "#",
+        "action": "mover",
+        "action_value": "R",
+        "stateFrom": 2,
+        "stateTo": 1
+      }
+    ],
+    "machines": [],
+    "type": "simple"
+  }
+]

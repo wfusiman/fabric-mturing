@@ -1,0 +1,26 @@
+.full-width {
+    width: 100%;
+}
+
+.valueTape-width {
+    width: 80%;
+}
+
+
+.positionTape-width {
+    width: 20%;
+}
+
+.close-snackbar button {
+    background-color: white;
+    color: rgb(0, 0, 0);
+}
+
+.multiline-snackbar {
+    white-space: pre-wrap;
+}
+
+.text-tape {
+    font-size: 20px;
+    font-weight: normal;
+}

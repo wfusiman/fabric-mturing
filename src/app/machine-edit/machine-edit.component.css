@@ -1,0 +1,16 @@
+.full-width {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+.close-snackbar button {
+    background-color: white;
+    color: rgb(0, 0, 0);
+}
+
+.multiline-snackbar {
+    white-space: pre-wrap;
+}

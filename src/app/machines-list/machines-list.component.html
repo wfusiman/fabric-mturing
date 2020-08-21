@@ -1,0 +1,33 @@
+
+<mat-list>
+    <h3 mat-subheader>Listado de maquinas generadas</h3>
+    <mat-list-item *ngFor="let machine of machines">
+      <mat-icon mat-list-icon>share</mat-icon>
+      <h4 mat-line>
+          <a title="{{machine.name}} visualizar" [routerLink]="['/machineView',machine.id]" matTooltip= "Visualizar">
+            {{machine.id}}: {{machine.name}}
+          </a> 
+          <button mat-icon-button 
+                  [disabled]="[!machine.active]" 
+                  [routerLink]="['/machineExec', machine.id]" 
+                  matTooltip= "Ejecutar" 
+                  aria-label="Ejecutar" style="margin-left: 5%;">
+            <mat-icon>play_arrow</mat-icon>
+          </button>
+      </h4>
+      <p mat-line> {{machine.description}} </p>
+      <p mat-line> Maquina {{machine.type}} </p>
+      
+        <button mat-icon-button color="primary" (click)="deleteMachine( machine )" matTooltip= "Eliminar"> 
+            <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-icon-button color="primary"  [routerLink]="['/machineEdit/edit/'+machine.id]" 
+               [disabled]="[!machine.active]" matTooltip= "Editar">
+          <mat-icon>edit</mat-icon>
+        </button>
+      
+          
+      <mat-divider></mat-divider>
+    </mat-list-item>
+</mat-list>
+  
