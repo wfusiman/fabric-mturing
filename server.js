@@ -9,26 +9,7 @@ const cors = require('cors');
 var express = require('express');
 var app = express();
 
-/*
 
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://appuser:fabric-mturing@cluster0.qltdi.mongodb.net/dbmt?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("dbmt").collection("machines");
-  // perform actions on the collection object
-  client.close();
-});
-
-
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://<username>:<password>@cluster0.qltdi.mongodb.net/<dbname>?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
 
 */
 // Create link to Angular build directory
