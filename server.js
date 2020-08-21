@@ -10,8 +10,6 @@ var express = require('express');
 var app = express();
 
 
-
-*/
 // Create link to Angular build directory
 app.use(express.static( './dist' ));
 /*
