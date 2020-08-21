@@ -6,7 +6,7 @@
     "Angular",
     "Node"
   ],
-  "repository": "https://git.heroku.com/fabric-mturing.git",
+  "repository": "https://github.com/wfusiman/fabric-mturing.git",
   "success_url": "/",
   "formation": {
     "web": {

@@ -9,11 +9,35 @@ const cors = require('cors');
 var express = require('express');
 var app = express();
 
-// Create link to Angular build directory
-app.use(express.static( './dist/mturingfabric' ));
-app.use( '/*', (req,res) => {
-    res.sendFile( 'index.html', {root: 'dist/mturingfabric'});
+/*
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://appuser:fabric-mturing@cluster0.qltdi.mongodb.net/dbmt?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("dbmt").collection("machines");
+  // perform actions on the collection object
+  client.close();
 });
+
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://<username>:<password>@cluster0.qltdi.mongodb.net/<dbname>?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
+*/
+// Create link to Angular build directory
+app.use(express.static( './dist' ));
+/*
+app.use( '/*', (req,res) => {
+    res.sendFile( 'index.html', {root: 'dist'});
+});
+*/
 
 //var corsOption = {
   //  origin: "http://localhost:4200" // origen coneccion Angular 8.
@@ -28,6 +52,11 @@ app.use( bodyParser.json() );
 app.use( methodOverride() );
 
 var router = express.Router();
+router.route('/')
+  .get( (req,res) => {
+      res.sendFile( 'index.html', {root: 'dist'});
+  });
+
 router.route( '/machines')
     .get( MachineController.getMachines )
     .post( MachineController.saveMachine );
