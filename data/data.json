@@ -188,28 +188,20 @@
     ],
     "transitions": [
       {
-        "num": 1,
-        "symbolRead": "y",
-        "action": "mover",
-        "action_value": "R",
-        "stateFrom": 2,
-        "stateTo": 2
-      },
-      {
-        "num": 2,
-        "symbolRead": "#",
-        "action": "mover",
-        "action_value": "R",
-        "stateFrom": 2,
-        "stateTo": 2
-      },
-      {
         "num": 3,
         "symbolRead": "x",
         "action": "escribir",
         "action_value": "x",
         "stateFrom": 2,
         "stateTo": 1
+      },
+      {
+        "num": 4,
+        "symbolRead": "y,#",
+        "action": "ninguna",
+        "action_value": "",
+        "stateFrom": 2,
+        "stateTo": 2
       }
     ],
     "machines": [

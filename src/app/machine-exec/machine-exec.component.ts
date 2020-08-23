@@ -182,7 +182,7 @@ export class MachineExecComponent implements OnInit {
                                                             panelClass: ['mat-toolbar', 'mat-primary','close-snackbar'] }); 
         this.statusMachine = RunMode.COMPLETE;
     }
-    if (this.head <= 0 || this.head >= this.lon_tape-1) {
+    if (this.head < 0 || this.head >= this.lon_tape-1) {
         this._snackbar.open( 'Ejecucion finalizada, fin de cadena - Estado: ' + this.actualState.name, 'Cerrar',
                                                         { duration: 10000,
                                                           panelClass: ['mat-toolbar', 'mat-primary','close-snackbar','multiline-snackbar'] });
