@@ -7,6 +7,7 @@ Aplicacion web, para crear y ejecutar maquinas de turing simples y compuestas.
 
 Instalacion: 
 - Clonar repositorio y ejecutar 'npm install'.
+
 Ejecucion:
 - ejecutar 'npm start' para iniciar el servidor.
 - Acceder a la url: http://localhost:8080
