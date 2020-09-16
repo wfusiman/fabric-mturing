@@ -665,5 +665,121 @@
       }
     ],
     "type": "compuesta"
+  },
+  {
+    "id": 11,
+    "name": "Copiar",
+    "description": "copia un digito al lado",
+    "active": true,
+    "alphabet": [
+      "0",
+      "1"
+    ],
+    "states": [
+      {
+        "key": 1,
+        "name": "Qf",
+        "type": "parada",
+        "loc_x": "900",
+        "loc_y": "200"
+      },
+      {
+        "key": 2,
+        "name": "Q0",
+        "type": "inicio",
+        "loc_x": "10",
+        "loc_y": "10"
+      },
+      {
+        "key": 3,
+        "name": "E3",
+        "type": "estado",
+        "loc_x": "160",
+        "loc_y": "20"
+      },
+      {
+        "key": 4,
+        "name": "E4",
+        "type": "estado",
+        "loc_x": "310",
+        "loc_y": "30"
+      }
+    ],
+    "transitions": [
+      {
+        "num": 1,
+        "symbolRead": "0",
+        "action": "guardar",
+        "action_value": "@",
+        "stateFrom": 2,
+        "stateTo": 3
+      },
+      {
+        "num": 2,
+        "symbolRead": "1",
+        "action": "guardar",
+        "action_value": "@",
+        "stateFrom": 2,
+        "stateTo": 3
+      },
+      {
+        "num": 3,
+        "symbolRead": "#",
+        "action": "guardar",
+        "action_value": "@",
+        "stateFrom": 2,
+        "stateTo": 3
+      },
+      {
+        "num": 4,
+        "symbolRead": "0",
+        "action": "mover",
+        "action_value": "R",
+        "stateFrom": 3,
+        "stateTo": 4
+      },
+      {
+        "num": 5,
+        "symbolRead": "1",
+        "action": "mover",
+        "action_value": "R",
+        "stateFrom": 3,
+        "stateTo": 4
+      },
+      {
+        "num": 6,
+        "symbolRead": "#",
+        "action": "mover",
+        "action_value": "R",
+        "stateFrom": 3,
+        "stateTo": 4
+      },
+      {
+        "num": 7,
+        "symbolRead": "0",
+        "action": "escribir",
+        "action_value": "@",
+        "stateFrom": 4,
+        "stateTo": 1
+      },
+      {
+        "num": 8,
+        "symbolRead": "1",
+        "action": "escribir",
+        "action_value": "@",
+        "stateFrom": 4,
+        "stateTo": 1
+      },
+      {
+        "num": 9,
+        "symbolRead": "#",
+        "action": "escribir",
+        "action_value": "@",
+        "stateFrom": 4,
+        "stateTo": 1
+      }
+    ],
+    "machines": [],
+    "type": "simple"
   }
 ]

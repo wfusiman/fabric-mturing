@@ -25,6 +25,8 @@ export class MachineExecComponent implements OnInit {
   states: string;   // lista de estados separados por coma representados en un string.
   statusMachine: RunMode = RunMode.TAPE_EMPTY;
 
+  arroba: string; // Variable auxiliar para guardar lo leido por la maquina cuando se ejecuta la accion guardar
+
   in_ini: number; // posicion de inicio de la entrada.
   in_end: number;  // posicion de fin de la entrada.
   head: number; // posicion del cabezal de lectura de la cinta.
@@ -141,8 +143,18 @@ export class MachineExecComponent implements OnInit {
         previusHead = this.head;
         this.head = (transicion.action_value == settings.MOVE_R) ? this.head+1: this.head-1;
       }
+      else if (transicion.action == settings.ACTION_SAVE) { // Accion guardar en la cinta
+         //console.log(transicion.read + " leido?");
+         this.arroba = transicion.read;
+         //console.log(this.arroba + " ayudaaaa");
+      }
       else if (transicion.action == settings.ACTION_WRITE) { // Accion escribir en la cinta
-        this.tape[this.head].simbolo = transicion.action_value;
+        //console.log(this.arroba + " valor de arroba al momento de escribir");
+        if(transicion.action_value == settings.SYMBOL_COPY){
+          this.tape[this.head].simbolo = this.arroba;
+        }else{
+          this.tape[this.head].simbolo = transicion.action_value;
+        }
       }
     }
 

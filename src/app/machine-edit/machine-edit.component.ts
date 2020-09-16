@@ -206,9 +206,9 @@ export class MachineEditComponent implements OnInit {
         let alphabet = [];
         this.transiciones.forEach( tr => {
             let symbol = (tr.symbolRead.length == 2) ? tr.symbolRead.slice( 1,2 ) : tr.symbolRead.slice( 0,1 );
-            if (symbol != settings.SYMBOL_EMPTY && !alphabet.find( a => (symbol === a) ))
+            if (symbol != settings.SYMBOL_EMPTY && symbol !=settings.SYMBOL_COPY && !alphabet.find( a => (symbol === a) ))
                 alphabet.push( symbol );
-            if (tr.action == settings.ACTION_WRITE && tr.action_value != settings.SYMBOL_EMPTY && !alphabet.find( a => (tr.action_value === a)))
+            if (tr.action == settings.ACTION_WRITE && tr.action_value != settings.SYMBOL_EMPTY && tr.action_value != settings.SYMBOL_COPY && !alphabet.find( a => (tr.action_value === a)))
                alphabet.push( tr.action_value );
         });
         this.machineAlphabet = alphabet.join();
@@ -343,8 +343,8 @@ export class MachineEditComponent implements OnInit {
         let symbols = (symbolsReads.indexOf( settings.SYMBOL_NOT ) != -1) ? symbolsReads.slice(1): symbolsReads;
         let msj: string = '';
         for (let symbol of symbols.split(',')) {
-            if (symbol != settings.SYMBOL_EMPTY && !this.machineAlphabet.split(",").includes( symbol )) {
-                msj += 'El symbolo ' + symbol + ' no pertenece al alfabeto \n';
+            if (symbol != settings.SYMBOL_EMPTY && symbol != settings.SYMBOL_COPY && !this.machineAlphabet.split(",").includes( symbol )) {
+                msj += 'El simbolo ' + symbol + ' no pertenece al alfabeto \n';
             }
         }
         if (msj.length > 0) {

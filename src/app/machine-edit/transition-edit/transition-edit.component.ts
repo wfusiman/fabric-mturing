@@ -22,7 +22,7 @@ export class DialogNewTransitionComponent {
     writeInputControl = new FormControl('',Validators.required );       // Control de campo s+settings.SYMBOL_EMPTY+imbolo a escribir.
     destinoSelectControl = new FormControl( '',Validators.required );   // Control de campo seleccion destino.
 
-    actionOptions: string[] = [settings.ACTION_WRITE,settings.ACTION_MOVE];  // Opciones para seleccionar accion.
+    actionOptions: string[] = [settings.ACTION_WRITE,settings.ACTION_MOVE,settings.ACTION_SAVE];  // Opciones para seleccionar accion.
     writeSelect: boolean = false;                           // Ver/ocultar campo simbolo a escribir.
     moveSelect: boolean = false;                            // Ver/ocultar campo movimiento 
     move: string = "R";                                     // Campo movimiento.
@@ -64,6 +64,10 @@ export class DialogNewTransitionComponent {
         }
         else if (this.actionInputControl.value === settings.ACTION_MOVE) {
             this.data.action_value = this.move;
+        }
+        else if (this.actionInputControl.value == settings.ACTION_SAVE) {
+            this.data.action_value = "@";
+            this.data.action = settings.ACTION_SAVE;
         }
         else { // ninguna accion
             this.data.action = settings.NO_ACTION;

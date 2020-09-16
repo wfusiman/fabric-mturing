@@ -1,5 +1,6 @@
 export const settings = {
     SYMBOL_EMPTY: '#',
+    SYMBOL_COPY: '@',
     SYMBOL_NOT: '!',
     TYPE_STATE_INIT: 'inicio',
     TYPE_STATE_HALT: 'parada',
@@ -9,6 +10,7 @@ export const settings = {
     NO_ACTION: 'ninguna',
     ACTION_MOVE: 'mover',
     ACTION_WRITE: 'escribir',
+    ACTION_SAVE: 'guardar',
     MOVE_R: 'R',
     MOVE_L: 'L',
 }
