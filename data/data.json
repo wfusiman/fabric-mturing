@@ -406,20 +406,20 @@
         "stateTo": 1
       },
       {
-        "num": 4,
+        "num": 3,
         "symbolRead": "y",
-        "action": "escribir",
-        "action_value": "x",
+        "action": "ninguna",
+        "action_value": "",
         "stateFrom": 2,
-        "stateTo": 1
+        "stateTo": 2
       },
       {
-        "num": 5,
+        "num": 4,
         "symbolRead": "#",
-        "action": "mover",
-        "action_value": "R",
+        "action": "ninguna",
+        "action_value": "",
         "stateFrom": 2,
-        "stateTo": 1
+        "stateTo": 2
       }
     ],
     "machines": [
