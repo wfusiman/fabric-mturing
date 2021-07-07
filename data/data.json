@@ -1,12 +1,12 @@
 [
   {
     "id": 1,
-    "name": "Rxy",
+    "name": "R10",
     "description": "Mueve una celda a la derecha",
     "active": true,
     "alphabet": [
-      "x",
-      "y"
+      "1",
+      "0"
     ],
     "states": [
       {
@@ -27,7 +27,7 @@
     "transitions": [
       {
         "num": 1,
-        "symbolRead": "x",
+        "symbolRead": "1",
         "action": "mover",
         "action_value": "R",
         "stateFrom": 2,
@@ -35,7 +35,7 @@
       },
       {
         "num": 2,
-        "symbolRead": "y",
+        "symbolRead": "0",
         "action": "mover",
         "action_value": "R",
         "stateFrom": 2,
@@ -46,60 +46,6 @@
         "symbolRead": "#",
         "action": "mover",
         "action_value": "R",
-        "stateFrom": 2,
-        "stateTo": 1
-      }
-    ],
-    "machines": [],
-    "type": "simple"
-  },
-  {
-    "id": 3,
-    "name": "x",
-    "description": "escribe x cuando lee x, y o #",
-    "active": true,
-    "alphabet": [
-      "x",
-      "y"
-    ],
-    "states": [
-      {
-        "key": 1,
-        "name": "Qf",
-        "type": "parada",
-        "loc_x": "277",
-        "loc_y": "3"
-      },
-      {
-        "key": 2,
-        "name": "Q0",
-        "type": "inicio",
-        "loc_x": "10",
-        "loc_y": "10"
-      }
-    ],
-    "transitions": [
-      {
-        "num": 1,
-        "symbolRead": "x",
-        "action": "escribir",
-        "action_value": "x",
-        "stateFrom": 2,
-        "stateTo": 1
-      },
-      {
-        "num": 2,
-        "symbolRead": "y",
-        "action": "escribir",
-        "action_value": "x",
-        "stateFrom": 2,
-        "stateTo": 1
-      },
-      {
-        "num": 3,
-        "symbolRead": "#",
-        "action": "escribir",
-        "action_value": "x",
         "stateFrom": 2,
         "stateTo": 1
       }
@@ -109,12 +55,12 @@
   },
   {
     "id": 4,
-    "name": "Lxy",
+    "name": "L10",
     "description": "Mueve una posicion a la izquierda",
     "active": true,
     "alphabet": [
-      "x",
-      "y"
+      "1",
+      "0"
     ],
     "states": [
       {
@@ -135,7 +81,7 @@
     "transitions": [
       {
         "num": 1,
-        "symbolRead": "x",
+        "symbolRead": "1",
         "action": "mover",
         "action_value": "L",
         "stateFrom": 2,
@@ -143,7 +89,7 @@
       },
       {
         "num": 2,
-        "symbolRead": "y",
+        "symbolRead": "0",
         "action": "mover",
         "action_value": "L",
         "stateFrom": 2,
@@ -198,115 +144,6 @@
       {
         "num": 4,
         "symbolRead": "y,#",
-        "action": "ninguna",
-        "action_value": "",
-        "stateFrom": 2,
-        "stateTo": 2
-      }
-    ],
-    "machines": [
-      {
-        "id": 2,
-        "name": "Rxy",
-        "description": "Mueve una celda a la derecha",
-        "active": true,
-        "alphabet": [
-          "x",
-          "y"
-        ],
-        "states": [
-          {
-            "key": 201,
-            "name": "Qf",
-            "type": "parada",
-            "loc_x": "269",
-            "loc_y": "13"
-          },
-          {
-            "key": 202,
-            "name": "Q0",
-            "type": "inicio",
-            "loc_x": "10",
-            "loc_y": "10"
-          }
-        ],
-        "transitions": [
-          {
-            "num": -201,
-            "symbolRead": "x",
-            "action": "mover",
-            "action_value": "R",
-            "stateFrom": "202",
-            "stateTo": "201"
-          },
-          {
-            "num": -202,
-            "symbolRead": "y",
-            "action": "mover",
-            "action_value": "R",
-            "stateFrom": "202",
-            "stateTo": "201"
-          },
-          {
-            "num": -203,
-            "symbolRead": "#",
-            "action": "mover",
-            "action_value": "R",
-            "stateFrom": "202",
-            "stateTo": "201"
-          }
-        ],
-        "machines": [],
-        "type": "simple"
-      }
-    ],
-    "type": "compuesta"
-  },
-  {
-    "id": 6,
-    "name": "R!x",
-    "description": "Busca a la derecha cualquier simbolo distinto de x",
-    "active": true,
-    "alphabet": [
-      "x",
-      "y"
-    ],
-    "states": [
-      {
-        "key": 1,
-        "name": "Qf",
-        "type": "parada",
-        "loc_x": "900",
-        "loc_y": "200"
-      },
-      {
-        "key": 2,
-        "name": "Rxy",
-        "type": "maquina inicio",
-        "loc_x": "107",
-        "loc_y": "124.88333129882812"
-      }
-    ],
-    "transitions": [
-      {
-        "num": 2,
-        "symbolRead": "y",
-        "action": "escribir",
-        "action_value": "y",
-        "stateFrom": 2,
-        "stateTo": 1
-      },
-      {
-        "num": 3,
-        "symbolRead": "#",
-        "action": "escribir",
-        "action_value": "#",
-        "stateFrom": 2,
-        "stateTo": 1
-      },
-      {
-        "num": 4,
-        "symbolRead": "x",
         "action": "ninguna",
         "action_value": "",
         "stateFrom": 2,
@@ -781,5 +618,1599 @@
     ],
     "machines": [],
     "type": "simple"
+  },
+  {
+    "id": 12,
+    "name": "L!x",
+    "description": "Busca a la izquierda cualquier simbolo distinto de x",
+    "active": true,
+    "alphabet": [
+      "x",
+      "y"
+    ],
+    "states": [
+      {
+        "key": 1,
+        "name": "Qf",
+        "type": "parada",
+        "loc_x": "900",
+        "loc_y": "200"
+      },
+      {
+        "key": 2,
+        "name": "Lxy",
+        "type": "maquina inicio",
+        "loc_x": "10",
+        "loc_y": "10"
+      }
+    ],
+    "transitions": [
+      {
+        "num": 1,
+        "symbolRead": "x",
+        "action": "ninguna",
+        "action_value": "",
+        "stateFrom": 2,
+        "stateTo": 2
+      },
+      {
+        "num": 2,
+        "symbolRead": "!x",
+        "action": "ninguna",
+        "action_value": "",
+        "stateFrom": 2,
+        "stateTo": 1
+      }
+    ],
+    "machines": [
+      {
+        "id": 2,
+        "name": "Lxy",
+        "description": "Mueve una posicion a la izquierda",
+        "active": true,
+        "alphabet": [
+          "x",
+          "y"
+        ],
+        "states": [
+          {
+            "key": 201,
+            "name": "Qf",
+            "type": "parada",
+            "loc_x": "511",
+            "loc_y": "18"
+          },
+          {
+            "key": 202,
+            "name": "Q0",
+            "type": "inicio",
+            "loc_x": "10",
+            "loc_y": "10"
+          }
+        ],
+        "transitions": [
+          {
+            "num": -201,
+            "symbolRead": "x",
+            "action": "mover",
+            "action_value": "L",
+            "stateFrom": "202",
+            "stateTo": "201"
+          },
+          {
+            "num": -202,
+            "symbolRead": "y",
+            "action": "mover",
+            "action_value": "L",
+            "stateFrom": "202",
+            "stateTo": "201"
+          },
+          {
+            "num": -203,
+            "symbolRead": "#",
+            "action": "mover",
+            "action_value": "L",
+            "stateFrom": "202",
+            "stateTo": "201"
+          }
+        ],
+        "machines": [],
+        "type": "simple"
+      }
+    ],
+    "type": "compuesta"
+  },
+  {
+    "id": 13,
+    "name": "Binary++",
+    "description": "Sucesor de un numero binario",
+    "active": true,
+    "alphabet": [
+      "1",
+      "0"
+    ],
+    "states": [
+      {
+        "key": 1,
+        "name": "Qf",
+        "type": "parada",
+        "loc_x": "900",
+        "loc_y": "200"
+      },
+      {
+        "key": 2,
+        "name": "Q0",
+        "type": "inicio",
+        "loc_x": "10",
+        "loc_y": "10"
+      },
+      {
+        "key": 3,
+        "name": "E3",
+        "type": "estado",
+        "loc_x": "153",
+        "loc_y": "22"
+      },
+      {
+        "key": 4,
+        "name": "E4",
+        "type": "estado",
+        "loc_x": "318",
+        "loc_y": "-53"
+      }
+    ],
+    "transitions": [
+      {
+        "num": 1,
+        "symbolRead": "!#",
+        "action": "mover",
+        "action_value": "R",
+        "stateFrom": 2,
+        "stateTo": 2
+      },
+      {
+        "num": 2,
+        "symbolRead": "#",
+        "action": "mover",
+        "action_value": "L",
+        "stateFrom": 2,
+        "stateTo": 3
+      },
+      {
+        "num": 3,
+        "symbolRead": "1",
+        "action": "escribir",
+        "action_value": "0",
+        "stateFrom": 3,
+        "stateTo": 4
+      },
+      {
+        "num": 4,
+        "symbolRead": "#",
+        "action": "mover",
+        "action_value": "L",
+        "stateFrom": 4,
+        "stateTo": 3
+      },
+      {
+        "num": 5,
+        "symbolRead": "0",
+        "action": "mover",
+        "action_value": "L",
+        "stateFrom": 4,
+        "stateTo": 3
+      },
+      {
+        "num": 6,
+        "symbolRead": "1",
+        "action": "mover",
+        "action_value": "L",
+        "stateFrom": 4,
+        "stateTo": 3
+      },
+      {
+        "num": 7,
+        "symbolRead": "!1",
+        "action": "escribir",
+        "action_value": "1",
+        "stateFrom": 3,
+        "stateTo": 1
+      }
+    ],
+    "machines": [],
+    "type": "simple"
+  },
+  {
+    "id": 14,
+    "name": "Binary--",
+    "description": "Antecesor de un numero binario",
+    "active": true,
+    "alphabet": [
+      "0",
+      "1"
+    ],
+    "states": [
+      {
+        "key": 1,
+        "name": "Qf",
+        "type": "parada",
+        "loc_x": "900",
+        "loc_y": "200"
+      },
+      {
+        "key": 2,
+        "name": "Q0",
+        "type": "inicio",
+        "loc_x": "10",
+        "loc_y": "10"
+      },
+      {
+        "key": 3,
+        "name": "E3",
+        "type": "estado",
+        "loc_x": "160",
+        "loc_y": "20"
+      },
+      {
+        "key": 4,
+        "name": "E4",
+        "type": "estado",
+        "loc_x": "342",
+        "loc_y": "-45"
+      }
+    ],
+    "transitions": [
+      {
+        "num": 1,
+        "symbolRead": "!#",
+        "action": "mover",
+        "action_value": "R",
+        "stateFrom": 2,
+        "stateTo": 2
+      },
+      {
+        "num": 2,
+        "symbolRead": "#",
+        "action": "mover",
+        "action_value": "L",
+        "stateFrom": 2,
+        "stateTo": 3
+      },
+      {
+        "num": 3,
+        "symbolRead": "0",
+        "action": "escribir",
+        "action_value": "1",
+        "stateFrom": 3,
+        "stateTo": 4
+      },
+      {
+        "num": 4,
+        "symbolRead": "1",
+        "action": "mover",
+        "action_value": "L",
+        "stateFrom": 4,
+        "stateTo": 3
+      },
+      {
+        "num": 5,
+        "symbolRead": "0",
+        "action": "mover",
+        "action_value": "L",
+        "stateFrom": 4,
+        "stateTo": 3
+      },
+      {
+        "num": 6,
+        "symbolRead": "#",
+        "action": "mover",
+        "action_value": "L",
+        "stateFrom": 4,
+        "stateTo": 3
+      },
+      {
+        "num": 7,
+        "symbolRead": "1",
+        "action": "escribir",
+        "action_value": "0",
+        "stateFrom": 3,
+        "stateTo": 1
+      },
+      {
+        "num": 8,
+        "symbolRead": "#",
+        "action": "escribir",
+        "action_value": "0",
+        "stateFrom": 3,
+        "stateTo": 1
+      }
+    ],
+    "machines": [],
+    "type": "simple"
+  },
+  {
+    "id": 15,
+    "name": "Voltear",
+    "description": "Copia a la inversa una cadena de x,y dejando un vacia en el medio de ambas",
+    "active": true,
+    "alphabet": [
+      "x",
+      "y",
+      "0"
+    ],
+    "states": [
+      {
+        "key": 1,
+        "name": "Qf",
+        "type": "parada",
+        "loc_x": "259",
+        "loc_y": "83"
+      },
+      {
+        "key": 2,
+        "name": "Q0",
+        "type": "inicio",
+        "loc_x": "-370",
+        "loc_y": "1"
+      },
+      {
+        "key": 3,
+        "name": "E3",
+        "type": "estado",
+        "loc_x": "160",
+        "loc_y": "20"
+      },
+      {
+        "key": 4,
+        "name": "E4",
+        "type": "estado",
+        "loc_x": "315",
+        "loc_y": "-75"
+      },
+      {
+        "key": 5,
+        "name": "E5",
+        "type": "estado",
+        "loc_x": "634",
+        "loc_y": "47"
+      },
+      {
+        "key": 6,
+        "name": "E6",
+        "type": "estado",
+        "loc_x": "485",
+        "loc_y": "199"
+      },
+      {
+        "key": 7,
+        "name": "E7",
+        "type": "estado",
+        "loc_x": "109",
+        "loc_y": "210"
+      },
+      {
+        "key": 8,
+        "name": "E8",
+        "type": "estado",
+        "loc_x": "-143",
+        "loc_y": "13"
+      },
+      {
+        "key": 9,
+        "name": "E9",
+        "type": "estado",
+        "loc_x": "467",
+        "loc_y": "-52"
+      }
+    ],
+    "transitions": [
+      {
+        "num": 1,
+        "symbolRead": "!#",
+        "action": "mover",
+        "action_value": "R",
+        "stateFrom": 2,
+        "stateTo": 2
+      },
+      {
+        "num": 2,
+        "symbolRead": "#",
+        "action": "escribir",
+        "action_value": "#",
+        "stateFrom": 2,
+        "stateTo": 8
+      },
+      {
+        "num": 3,
+        "symbolRead": "x",
+        "action": "guardar",
+        "action_value": "@",
+        "stateFrom": 3,
+        "stateTo": 4
+      },
+      {
+        "num": 4,
+        "symbolRead": "y",
+        "action": "guardar",
+        "action_value": "@",
+        "stateFrom": 3,
+        "stateTo": 4
+      },
+      {
+        "num": 11,
+        "symbolRead": "x",
+        "action": "escribir",
+        "action_value": "@",
+        "stateFrom": 6,
+        "stateTo": 7
+      },
+      {
+        "num": 12,
+        "symbolRead": "y",
+        "action": "escribir",
+        "action_value": "@",
+        "stateFrom": 6,
+        "stateTo": 7
+      },
+      {
+        "num": 13,
+        "symbolRead": "0",
+        "action": "escribir",
+        "action_value": "@",
+        "stateFrom": 6,
+        "stateTo": 7
+      },
+      {
+        "num": 14,
+        "symbolRead": "#",
+        "action": "escribir",
+        "action_value": "@",
+        "stateFrom": 6,
+        "stateTo": 7
+      },
+      {
+        "num": 15,
+        "symbolRead": "!0",
+        "action": "mover",
+        "action_value": "L",
+        "stateFrom": 7,
+        "stateTo": 7
+      },
+      {
+        "num": 16,
+        "symbolRead": "0",
+        "action": "escribir",
+        "action_value": "@",
+        "stateFrom": 7,
+        "stateTo": 8
+      },
+      {
+        "num": 18,
+        "symbolRead": "0",
+        "action": "mover",
+        "action_value": "L",
+        "stateFrom": 3,
+        "stateTo": 3
+      },
+      {
+        "num": 19,
+        "symbolRead": "x",
+        "action": "mover",
+        "action_value": "L",
+        "stateFrom": 8,
+        "stateTo": 3
+      },
+      {
+        "num": 20,
+        "symbolRead": "y",
+        "action": "mover",
+        "action_value": "L",
+        "stateFrom": 8,
+        "stateTo": 3
+      },
+      {
+        "num": 21,
+        "symbolRead": "0",
+        "action": "mover",
+        "action_value": "L",
+        "stateFrom": 8,
+        "stateTo": 3
+      },
+      {
+        "num": 22,
+        "symbolRead": "#",
+        "action": "escribir",
+        "action_value": "#",
+        "stateFrom": 3,
+        "stateTo": 1
+      },
+      {
+        "num": 23,
+        "symbolRead": "#",
+        "action": "mover",
+        "action_value": "L",
+        "stateFrom": 8,
+        "stateTo": 3
+      },
+      {
+        "num": 24,
+        "symbolRead": "x",
+        "action": "escribir",
+        "action_value": "0",
+        "stateFrom": 4,
+        "stateTo": 9
+      },
+      {
+        "num": 25,
+        "symbolRead": "y",
+        "action": "escribir",
+        "action_value": "0",
+        "stateFrom": 4,
+        "stateTo": 9
+      },
+      {
+        "num": 26,
+        "symbolRead": "#",
+        "action": "escribir",
+        "action_value": "0",
+        "stateFrom": 4,
+        "stateTo": 9
+      },
+      {
+        "num": 27,
+        "symbolRead": "0",
+        "action": "escribir",
+        "action_value": "0",
+        "stateFrom": 4,
+        "stateTo": 9
+      },
+      {
+        "num": 28,
+        "symbolRead": "!#",
+        "action": "mover",
+        "action_value": "R",
+        "stateFrom": 9,
+        "stateTo": 9
+      },
+      {
+        "num": 29,
+        "symbolRead": "#",
+        "action": "mover",
+        "action_value": "R",
+        "stateFrom": 9,
+        "stateTo": 5
+      },
+      {
+        "num": 30,
+        "symbolRead": "#",
+        "action": "escribir",
+        "action_value": "#",
+        "stateFrom": 5,
+        "stateTo": 6
+      },
+      {
+        "num": 31,
+        "symbolRead": "!#",
+        "action": "mover",
+        "action_value": "R",
+        "stateFrom": 5,
+        "stateTo": 5
+      }
+    ],
+    "machines": [],
+    "type": "simple"
+  },
+  {
+    "id": 16,
+    "name": "R#",
+    "description": "Recorre la cinta a la derecha buscando el simbolo #",
+    "active": true,
+    "alphabet": [
+      "1",
+      "0"
+    ],
+    "states": [
+      {
+        "key": 1,
+        "name": "Qf",
+        "type": "parada",
+        "loc_x": "298",
+        "loc_y": "30"
+      },
+      {
+        "key": 2,
+        "name": "Q0",
+        "type": "inicio",
+        "loc_x": "10",
+        "loc_y": "10"
+      }
+    ],
+    "transitions": [
+      {
+        "num": 1,
+        "symbolRead": "#",
+        "action": "escribir",
+        "action_value": "#",
+        "stateFrom": 2,
+        "stateTo": 1
+      },
+      {
+        "num": 2,
+        "symbolRead": "!#",
+        "action": "mover",
+        "action_value": "R",
+        "stateFrom": 2,
+        "stateTo": 2
+      }
+    ],
+    "machines": [],
+    "type": "simple"
+  },
+  {
+    "id": 17,
+    "name": "L#",
+    "description": "Se mueve a la izquierda hasta encontrar el simbolo #",
+    "active": true,
+    "alphabet": [
+      "1",
+      "0"
+    ],
+    "states": [
+      {
+        "key": 1,
+        "name": "Qf",
+        "type": "parada",
+        "loc_x": "900",
+        "loc_y": "200"
+      },
+      {
+        "key": 2,
+        "name": "Q0",
+        "type": "inicio",
+        "loc_x": "10",
+        "loc_y": "10"
+      }
+    ],
+    "transitions": [
+      {
+        "num": 1,
+        "symbolRead": "#",
+        "action": "escribir",
+        "action_value": "#",
+        "stateFrom": 2,
+        "stateTo": 1
+      },
+      {
+        "num": 2,
+        "symbolRead": "!#",
+        "action": "mover",
+        "action_value": "L",
+        "stateFrom": 2,
+        "stateTo": 2
+      }
+    ],
+    "machines": [],
+    "type": "simple"
+  },
+  {
+    "id": 18,
+    "name": "R1",
+    "description": "Se mueve a la derecha hasta encontrar un 1",
+    "active": true,
+    "alphabet": [
+      "1",
+      "0"
+    ],
+    "states": [
+      {
+        "key": 1,
+        "name": "Qf",
+        "type": "parada",
+        "loc_x": "900",
+        "loc_y": "200"
+      },
+      {
+        "key": 2,
+        "name": "Q0",
+        "type": "inicio",
+        "loc_x": "10",
+        "loc_y": "10"
+      }
+    ],
+    "transitions": [
+      {
+        "num": 1,
+        "symbolRead": "1",
+        "action": "escribir",
+        "action_value": "1",
+        "stateFrom": 2,
+        "stateTo": 1
+      },
+      {
+        "num": 2,
+        "symbolRead": "!1",
+        "action": "mover",
+        "action_value": "R",
+        "stateFrom": 2,
+        "stateTo": 2
+      }
+    ],
+    "machines": [],
+    "type": "simple"
+  },
+  {
+    "id": 19,
+    "name": "R0",
+    "description": "Se mueve a la derecha hasta encontrar 0",
+    "active": true,
+    "alphabet": [
+      "0",
+      "1"
+    ],
+    "states": [
+      {
+        "key": 1,
+        "name": "Qf",
+        "type": "parada",
+        "loc_x": "900",
+        "loc_y": "200"
+      },
+      {
+        "key": 2,
+        "name": "Q0",
+        "type": "inicio",
+        "loc_x": "10",
+        "loc_y": "10"
+      }
+    ],
+    "transitions": [
+      {
+        "num": 1,
+        "symbolRead": "0",
+        "action": "escribir",
+        "action_value": "0",
+        "stateFrom": 2,
+        "stateTo": 1
+      },
+      {
+        "num": 2,
+        "symbolRead": "!0",
+        "action": "mover",
+        "action_value": "R",
+        "stateFrom": 2,
+        "stateTo": 2
+      }
+    ],
+    "machines": [],
+    "type": "simple"
+  },
+  {
+    "id": 20,
+    "name": "L1",
+    "description": "Se mueve a la izquierda hasta encontrar el simbolo 1",
+    "active": true,
+    "alphabet": [
+      "1",
+      "0"
+    ],
+    "states": [
+      {
+        "key": 1,
+        "name": "Qf",
+        "type": "parada",
+        "loc_x": "900",
+        "loc_y": "200"
+      },
+      {
+        "key": 2,
+        "name": "Q0",
+        "type": "inicio",
+        "loc_x": "10",
+        "loc_y": "10"
+      }
+    ],
+    "transitions": [
+      {
+        "num": 1,
+        "symbolRead": "1",
+        "action": "escribir",
+        "action_value": "1",
+        "stateFrom": 2,
+        "stateTo": 1
+      },
+      {
+        "num": 2,
+        "symbolRead": "!1",
+        "action": "mover",
+        "action_value": "L",
+        "stateFrom": 2,
+        "stateTo": 2
+      }
+    ],
+    "machines": [],
+    "type": "simple"
+  },
+  {
+    "id": 21,
+    "name": "L0",
+    "description": "Se mueve a la izquierda hasta encontrar el simbolo 0",
+    "active": true,
+    "alphabet": [
+      "0",
+      "1"
+    ],
+    "states": [
+      {
+        "key": 1,
+        "name": "Qf",
+        "type": "parada",
+        "loc_x": "900",
+        "loc_y": "200"
+      },
+      {
+        "key": 2,
+        "name": "Q0",
+        "type": "inicio",
+        "loc_x": "10",
+        "loc_y": "10"
+      }
+    ],
+    "transitions": [
+      {
+        "num": 1,
+        "symbolRead": "0",
+        "action": "escribir",
+        "action_value": "0",
+        "stateFrom": 2,
+        "stateTo": 1
+      },
+      {
+        "num": 2,
+        "symbolRead": "!0",
+        "action": "mover",
+        "action_value": "L",
+        "stateFrom": 2,
+        "stateTo": 2
+      }
+    ],
+    "machines": [],
+    "type": "simple"
+  },
+  {
+    "id": 22,
+    "name": "Sumadora",
+    "description": "Suma dos numeros separados por un #",
+    "active": true,
+    "alphabet": [
+      "1",
+      "0"
+    ],
+    "states": [
+      {
+        "key": 1,
+        "name": "Qf",
+        "type": "parada",
+        "loc_x": "970",
+        "loc_y": "184"
+      },
+      {
+        "key": 5,
+        "name": "Binary--",
+        "type": "maquina inicio",
+        "loc_x": "688",
+        "loc_y": "-52"
+      },
+      {
+        "key": 6,
+        "name": "R#",
+        "type": "maquina",
+        "loc_x": "677",
+        "loc_y": "122"
+      },
+      {
+        "key": 7,
+        "name": "L#",
+        "type": "maquina",
+        "loc_x": "1226.3305315781251",
+        "loc_y": "13.88900132812492"
+      },
+      {
+        "key": 13,
+        "name": "L#",
+        "type": "maquina",
+        "loc_x": "1025.3090858593753",
+        "loc_y": "-32.80669484375005"
+      },
+      {
+        "key": 14,
+        "name": "Binary++",
+        "type": "maquina",
+        "loc_x": "1724.3090858593753",
+        "loc_y": "4.193305156249949"
+      },
+      {
+        "key": 15,
+        "name": "L10",
+        "type": "maquina",
+        "loc_x": "1438.3090858593753",
+        "loc_y": "-33.80669484375005"
+      },
+      {
+        "key": 16,
+        "name": "R10",
+        "type": "maquina",
+        "loc_x": "1420.3090858593753",
+        "loc_y": "126.19330515624995"
+      },
+      {
+        "key": 17,
+        "name": "R10",
+        "type": "maquina",
+        "loc_x": "867.3090858593753",
+        "loc_y": "-23.80669484375005"
+      },
+      {
+        "key": 18,
+        "name": "L1",
+        "type": "maquina",
+        "loc_x": "1226.3090858593753",
+        "loc_y": "-75.80669484375005"
+      }
+    ],
+    "transitions": [
+      {
+        "num": 1,
+        "symbolRead": "0,1,#",
+        "action": "ninguna",
+        "action_value": "",
+        "stateFrom": 5,
+        "stateTo": 6
+      },
+      {
+        "num": 9,
+        "symbolRead": "0,1,#",
+        "action": "ninguna",
+        "action_value": "",
+        "stateFrom": 6,
+        "stateTo": 16
+      },
+      {
+        "num": 10,
+        "symbolRead": "0,1",
+        "action": "ninguna",
+        "action_value": "",
+        "stateFrom": 16,
+        "stateTo": 14
+      },
+      {
+        "num": 11,
+        "symbolRead": "#",
+        "action": "ninguna",
+        "action_value": "",
+        "stateFrom": 16,
+        "stateTo": 1
+      },
+      {
+        "num": 12,
+        "symbolRead": "0,1,#",
+        "action": "ninguna",
+        "action_value": "",
+        "stateFrom": 14,
+        "stateTo": 7
+      },
+      {
+        "num": 13,
+        "symbolRead": "0,1,#",
+        "action": "ninguna",
+        "action_value": "",
+        "stateFrom": 7,
+        "stateTo": 15
+      },
+      {
+        "num": 15,
+        "symbolRead": "0,1,#",
+        "action": "ninguna",
+        "action_value": "",
+        "stateFrom": 13,
+        "stateTo": 17
+      },
+      {
+        "num": 16,
+        "symbolRead": "0,1,#",
+        "action": "ninguna",
+        "action_value": "",
+        "stateFrom": 17,
+        "stateTo": 5
+      },
+      {
+        "num": 17,
+        "symbolRead": "1,0,#",
+        "action": "ninguna",
+        "action_value": "",
+        "stateFrom": 18,
+        "stateTo": 13
+      },
+      {
+        "num": 18,
+        "symbolRead": "0",
+        "action": "ninguna",
+        "action_value": "",
+        "stateFrom": 15,
+        "stateTo": 15
+      },
+      {
+        "num": 19,
+        "symbolRead": "1",
+        "action": "ninguna",
+        "action_value": "",
+        "stateFrom": 15,
+        "stateTo": 18
+      },
+      {
+        "num": 20,
+        "symbolRead": "#",
+        "action": "ninguna",
+        "action_value": "",
+        "stateFrom": 15,
+        "stateTo": 1
+      }
+    ],
+    "machines": [
+      {
+        "id": 5,
+        "name": "Binary--",
+        "description": "Antecesor de un numero binario",
+        "active": true,
+        "alphabet": [
+          "0",
+          "1"
+        ],
+        "states": [
+          {
+            "key": 501,
+            "name": "Qf",
+            "type": "parada",
+            "loc_x": "900",
+            "loc_y": "200"
+          },
+          {
+            "key": 502,
+            "name": "Q0",
+            "type": "inicio",
+            "loc_x": "10",
+            "loc_y": "10"
+          },
+          {
+            "key": 503,
+            "name": "E3",
+            "type": "estado",
+            "loc_x": "160",
+            "loc_y": "20"
+          },
+          {
+            "key": 504,
+            "name": "E4",
+            "type": "estado",
+            "loc_x": "342",
+            "loc_y": "-45"
+          }
+        ],
+        "transitions": [
+          {
+            "num": -501,
+            "symbolRead": "!#",
+            "action": "mover",
+            "action_value": "R",
+            "stateFrom": "502",
+            "stateTo": "502"
+          },
+          {
+            "num": -502,
+            "symbolRead": "#",
+            "action": "mover",
+            "action_value": "L",
+            "stateFrom": "502",
+            "stateTo": "503"
+          },
+          {
+            "num": -503,
+            "symbolRead": "0",
+            "action": "escribir",
+            "action_value": "1",
+            "stateFrom": "503",
+            "stateTo": "504"
+          },
+          {
+            "num": -504,
+            "symbolRead": "1",
+            "action": "mover",
+            "action_value": "L",
+            "stateFrom": "504",
+            "stateTo": "503"
+          },
+          {
+            "num": -505,
+            "symbolRead": "0",
+            "action": "mover",
+            "action_value": "L",
+            "stateFrom": "504",
+            "stateTo": "503"
+          },
+          {
+            "num": -506,
+            "symbolRead": "#",
+            "action": "mover",
+            "action_value": "L",
+            "stateFrom": "504",
+            "stateTo": "503"
+          },
+          {
+            "num": -507,
+            "symbolRead": "1",
+            "action": "escribir",
+            "action_value": "0",
+            "stateFrom": "503",
+            "stateTo": "501"
+          },
+          {
+            "num": -508,
+            "symbolRead": "#",
+            "action": "escribir",
+            "action_value": "0",
+            "stateFrom": "503",
+            "stateTo": "501"
+          }
+        ],
+        "machines": [],
+        "type": "simple"
+      },
+      {
+        "id": 6,
+        "name": "R#",
+        "description": "Recorre la cinta a la derecha buscando el simbolo #",
+        "active": true,
+        "alphabet": [
+          "1",
+          "0"
+        ],
+        "states": [
+          {
+            "key": 601,
+            "name": "Qf",
+            "type": "parada",
+            "loc_x": "298",
+            "loc_y": "30"
+          },
+          {
+            "key": 602,
+            "name": "Q0",
+            "type": "inicio",
+            "loc_x": "10",
+            "loc_y": "10"
+          }
+        ],
+        "transitions": [
+          {
+            "num": -601,
+            "symbolRead": "#",
+            "action": "escribir",
+            "action_value": "#",
+            "stateFrom": "602",
+            "stateTo": "601"
+          },
+          {
+            "num": -602,
+            "symbolRead": "!#",
+            "action": "mover",
+            "action_value": "R",
+            "stateFrom": "602",
+            "stateTo": "602"
+          }
+        ],
+        "machines": [],
+        "type": "simple"
+      },
+      {
+        "id": 7,
+        "name": "L#",
+        "description": "Se mueve a la izquierda hasta encontrar el simbolo #",
+        "active": true,
+        "alphabet": [
+          "1",
+          "0"
+        ],
+        "states": [
+          {
+            "key": 701,
+            "name": "Qf",
+            "type": "parada",
+            "loc_x": "900",
+            "loc_y": "200"
+          },
+          {
+            "key": 702,
+            "name": "Q0",
+            "type": "inicio",
+            "loc_x": "10",
+            "loc_y": "10"
+          }
+        ],
+        "transitions": [
+          {
+            "num": -701,
+            "symbolRead": "#",
+            "action": "escribir",
+            "action_value": "#",
+            "stateFrom": "702",
+            "stateTo": "701"
+          },
+          {
+            "num": -702,
+            "symbolRead": "!#",
+            "action": "mover",
+            "action_value": "L",
+            "stateFrom": "702",
+            "stateTo": "702"
+          }
+        ],
+        "machines": [],
+        "type": "simple"
+      },
+      {
+        "id": 13,
+        "name": "L#",
+        "description": "Se mueve a la izquierda hasta encontrar el simbolo #",
+        "active": true,
+        "alphabet": [
+          "1",
+          "0"
+        ],
+        "states": [
+          {
+            "key": 1301,
+            "name": "Qf",
+            "type": "parada",
+            "loc_x": "900",
+            "loc_y": "200"
+          },
+          {
+            "key": 1302,
+            "name": "Q0",
+            "type": "inicio",
+            "loc_x": "10",
+            "loc_y": "10"
+          }
+        ],
+        "transitions": [
+          {
+            "num": -1301,
+            "symbolRead": "#",
+            "action": "escribir",
+            "action_value": "#",
+            "stateFrom": "1302",
+            "stateTo": "1301"
+          },
+          {
+            "num": -1302,
+            "symbolRead": "!#",
+            "action": "mover",
+            "action_value": "L",
+            "stateFrom": "1302",
+            "stateTo": "1302"
+          }
+        ],
+        "machines": [],
+        "type": "simple"
+      },
+      {
+        "id": 14,
+        "name": "Binary++",
+        "description": "Sucesor de un numero binario",
+        "active": true,
+        "alphabet": [
+          "1",
+          "0"
+        ],
+        "states": [
+          {
+            "key": 1401,
+            "name": "Qf",
+            "type": "parada",
+            "loc_x": "900",
+            "loc_y": "200"
+          },
+          {
+            "key": 1402,
+            "name": "Q0",
+            "type": "inicio",
+            "loc_x": "10",
+            "loc_y": "10"
+          },
+          {
+            "key": 1403,
+            "name": "E3",
+            "type": "estado",
+            "loc_x": "153",
+            "loc_y": "22"
+          },
+          {
+            "key": 1404,
+            "name": "E4",
+            "type": "estado",
+            "loc_x": "318",
+            "loc_y": "-53"
+          }
+        ],
+        "transitions": [
+          {
+            "num": -1401,
+            "symbolRead": "!#",
+            "action": "mover",
+            "action_value": "R",
+            "stateFrom": "1402",
+            "stateTo": "1402"
+          },
+          {
+            "num": -1402,
+            "symbolRead": "#",
+            "action": "mover",
+            "action_value": "L",
+            "stateFrom": "1402",
+            "stateTo": "1403"
+          },
+          {
+            "num": -1403,
+            "symbolRead": "1",
+            "action": "escribir",
+            "action_value": "0",
+            "stateFrom": "1403",
+            "stateTo": "1404"
+          },
+          {
+            "num": -1404,
+            "symbolRead": "#",
+            "action": "mover",
+            "action_value": "L",
+            "stateFrom": "1404",
+            "stateTo": "1403"
+          },
+          {
+            "num": -1405,
+            "symbolRead": "0",
+            "action": "mover",
+            "action_value": "L",
+            "stateFrom": "1404",
+            "stateTo": "1403"
+          },
+          {
+            "num": -1406,
+            "symbolRead": "1",
+            "action": "mover",
+            "action_value": "L",
+            "stateFrom": "1404",
+            "stateTo": "1403"
+          },
+          {
+            "num": -1407,
+            "symbolRead": "!1",
+            "action": "escribir",
+            "action_value": "1",
+            "stateFrom": "1403",
+            "stateTo": "1401"
+          }
+        ],
+        "machines": [],
+        "type": "simple"
+      },
+      {
+        "id": 15,
+        "name": "L10",
+        "description": "Mueve una posicion a la izquierda",
+        "active": true,
+        "alphabet": [
+          "1",
+          "0"
+        ],
+        "states": [
+          {
+            "key": 1501,
+            "name": "Qf",
+            "type": "parada",
+            "loc_x": "511",
+            "loc_y": "18"
+          },
+          {
+            "key": 1502,
+            "name": "Q0",
+            "type": "inicio",
+            "loc_x": "10",
+            "loc_y": "10"
+          }
+        ],
+        "transitions": [
+          {
+            "num": -1501,
+            "symbolRead": "1",
+            "action": "mover",
+            "action_value": "L",
+            "stateFrom": "1502",
+            "stateTo": "1501"
+          },
+          {
+            "num": -1502,
+            "symbolRead": "0",
+            "action": "mover",
+            "action_value": "L",
+            "stateFrom": "1502",
+            "stateTo": "1501"
+          },
+          {
+            "num": -1503,
+            "symbolRead": "#",
+            "action": "mover",
+            "action_value": "L",
+            "stateFrom": "1502",
+            "stateTo": "1501"
+          }
+        ],
+        "machines": [],
+        "type": "simple"
+      },
+      {
+        "id": 16,
+        "name": "R10",
+        "description": "Mueve una celda a la derecha",
+        "active": true,
+        "alphabet": [
+          "1",
+          "0"
+        ],
+        "states": [
+          {
+            "key": 1601,
+            "name": "Qf",
+            "type": "parada",
+            "loc_x": "269",
+            "loc_y": "13"
+          },
+          {
+            "key": 1602,
+            "name": "Q0",
+            "type": "inicio",
+            "loc_x": "10",
+            "loc_y": "10"
+          }
+        ],
+        "transitions": [
+          {
+            "num": -1601,
+            "symbolRead": "1",
+            "action": "mover",
+            "action_value": "R",
+            "stateFrom": "1602",
+            "stateTo": "1601"
+          },
+          {
+            "num": -1602,
+            "symbolRead": "0",
+            "action": "mover",
+            "action_value": "R",
+            "stateFrom": "1602",
+            "stateTo": "1601"
+          },
+          {
+            "num": -1603,
+            "symbolRead": "#",
+            "action": "mover",
+            "action_value": "R",
+            "stateFrom": "1602",
+            "stateTo": "1601"
+          }
+        ],
+        "machines": [],
+        "type": "simple"
+      },
+      {
+        "id": 17,
+        "name": "R10",
+        "description": "Mueve una celda a la derecha",
+        "active": true,
+        "alphabet": [
+          "1",
+          "0"
+        ],
+        "states": [
+          {
+            "key": 1701,
+            "name": "Qf",
+            "type": "parada",
+            "loc_x": "269",
+            "loc_y": "13"
+          },
+          {
+            "key": 1702,
+            "name": "Q0",
+            "type": "inicio",
+            "loc_x": "10",
+            "loc_y": "10"
+          }
+        ],
+        "transitions": [
+          {
+            "num": -1701,
+            "symbolRead": "1",
+            "action": "mover",
+            "action_value": "R",
+            "stateFrom": "1702",
+            "stateTo": "1701"
+          },
+          {
+            "num": -1702,
+            "symbolRead": "0",
+            "action": "mover",
+            "action_value": "R",
+            "stateFrom": "1702",
+            "stateTo": "1701"
+          },
+          {
+            "num": -1703,
+            "symbolRead": "#",
+            "action": "mover",
+            "action_value": "R",
+            "stateFrom": "1702",
+            "stateTo": "1701"
+          }
+        ],
+        "machines": [],
+        "type": "simple"
+      },
+      {
+        "id": 18,
+        "name": "L1",
+        "description": "Se mueve a la izquierda hasta encontrar el simbolo 1",
+        "active": true,
+        "alphabet": [
+          "1",
+          "0"
+        ],
+        "states": [
+          {
+            "key": 1801,
+            "name": "Qf",
+            "type": "parada",
+            "loc_x": "900",
+            "loc_y": "200"
+          },
+          {
+            "key": 1802,
+            "name": "Q0",
+            "type": "inicio",
+            "loc_x": "10",
+            "loc_y": "10"
+          }
+        ],
+        "transitions": [
+          {
+            "num": -1801,
+            "symbolRead": "1",
+            "action": "escribir",
+            "action_value": "1",
+            "stateFrom": "1802",
+            "stateTo": "1801"
+          },
+          {
+            "num": -1802,
+            "symbolRead": "!1",
+            "action": "mover",
+            "action_value": "L",
+            "stateFrom": "1802",
+            "stateTo": "1802"
+          }
+        ],
+        "machines": [],
+        "type": "simple"
+      }
+    ],
+    "type": "compuesta"
   }
 ]
